@@ -10,6 +10,9 @@ export default function Index() {
       <Button asChild>
         <Link to="/auth/sign-in">Sign In</Link>
       </Button>
+      <Button asChild>
+        <Link to="/user/home">Home</Link>
+      </Button>
     </div>
   );
 }

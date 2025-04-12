@@ -1,5 +1,4 @@
 import {
-  Card,
   CardContent,
   CardDescription,
   CardFooter,
@@ -21,7 +20,6 @@ import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { PasswordInput } from "@/components/ui/password-input";
-import logo from "@/assets/react.svg";
 
 const FormSchema = z.object({
   email: z.string().email("Invalid email address"),
@@ -44,65 +42,58 @@ const SignIn = () => {
   }
 
   return (
-    <main className="h-full flex justify-center items-center max-w-120 mx-auto p-4 flex-col gap-4">
-      <Link to="/">
-        <img src={logo} alt="" className="w-16" />
-      </Link>
-      <Card className="w-full">
-        <CardHeader className="text-center">
-          <CardTitle>Sign In</CardTitle>
-          <CardDescription>
-            Sign in to your account to continue.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Form {...form}>
-            <form
-              onSubmit={form.handleSubmit(onSubmit)}
-              className="space-y-6 w-full"
-            >
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input placeholder="john@doe.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <PasswordInput placeholder="****" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button type="submit" className="w-full">
-                Submit
-              </Button>
-            </form>
-          </Form>
-        </CardContent>
-        <CardFooter>
-          <p className="text-sm w-full text-center">
-            Don't have any account?{" "}
-            <Link to="/auth/sign-up" className="hover:underline text-primary">
-              Sign Up
-            </Link>
-          </p>
-        </CardFooter>
-      </Card>
-    </main>
+    <>
+      <CardHeader className="text-center">
+        <CardTitle>Sign In</CardTitle>
+        <CardDescription>Sign in to your account to continue.</CardDescription>
+      </CardHeader>
+      <CardContent>
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="space-y-6 w-full"
+          >
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl>
+                    <Input placeholder="john@doe.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <PasswordInput placeholder="****" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" className="w-full">
+              Submit
+            </Button>
+          </form>
+        </Form>
+      </CardContent>
+      <CardFooter>
+        <p className="text-sm w-full text-center">
+          Don't have any account?{" "}
+          <Link to="/auth/sign-up" className="hover:underline text-primary">
+            Sign Up
+          </Link>
+        </p>
+      </CardFooter>
+    </>
   );
 };
 
