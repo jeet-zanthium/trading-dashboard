@@ -3,14 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@theme {
-  /* --color-background: hsl(230, 30%, 96%);
-  --color-primary: hsl(230, 100%, 68%);
-  --color-success: hsl(151, 87%, 38%);
-  --color-dark: hsl(230, 30%, 20%);
-  --color-light: hsl(0, 0%, 100%); */
-}
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
