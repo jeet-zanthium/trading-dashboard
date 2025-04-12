@@ -2,18 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
+import { FallingLines } from "react-loader-spinner";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    // lazy: async () => {
-    //   // load component and loader in parallel before rendering
-    //   const [{ default: Component }] = await Promise.all([
-    //     import("./pages/index"),
-    //     // import("./pages/index-loader"),
-    //   ]);
-    //   return { Component };
-    // },
     lazy: async () => ({
       Component: (await import("./pages/index")).default,
     }),
@@ -22,7 +15,16 @@ const router = createBrowserRouter([
     path: "auth/",
     HydrateFallback: () => (
       <div className="h-full flex justify-center items-center">
-        <p>Loading...</p>
+        <div className="size-14 bg-secondary rounded-lg flex justify-center items-center rotate-45">
+          <div className="-rotate-45">
+            <FallingLines
+              color="#f0b90b"
+              width="44"
+              visible={true}
+              aria-label="falling-lines-loading"
+            />
+          </div>
+        </div>
       </div>
     ),
     children: [
