@@ -1,0 +1,13 @@
+{
+  "name": "tradio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:server": "pnpm --filter @tradio/server dev",
+    "dev:client": "pnpm --filter @tradio/client dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
