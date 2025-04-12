@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const Index = () => {
   return (
     <div>
-      <Link to="/">Go Back</Link>
+      <Link to="/">Go home</Link>
     </div>
   );
 };
